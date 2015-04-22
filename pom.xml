@@ -157,5 +157,9 @@
 
     </dependencies>
 
+    <build>
+        <finalName>CMS</finalName>
+    </build>
+
 
 </project>
