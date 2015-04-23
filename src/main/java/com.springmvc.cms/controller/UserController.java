@@ -20,4 +20,12 @@ public class UserController {
     public String main(){
         return "main";
     }
+    @RequestMapping("test")
+    public String test(){
+        return "test";
+    }
+    @RequestMapping("login")
+    public String login(){
+        return "login";
+    }
 }
