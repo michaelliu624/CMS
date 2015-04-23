@@ -35,18 +35,18 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <meta content="" name="author" />
     <meta name="MobileOptimized" content="320">
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<%=basePath%>/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN THEME STYLES -->
-    <link href="assets/css/style-metronic.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="assets/css/pages/error.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/style-metronic.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/style-responsive.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/assets/css/pages/error.css" rel="stylesheet" type="text/css" />
+    <link href=">/assets/css/custom.css" rel="stylesheet" type="text/css" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -55,15 +55,15 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <body class="page-404-full-page">
 <div class="row">
     <div class="col-md-12 page-404">
-        <div class="number">404</div>
+        <div class="number">404错误</div>
         <div class="details">
-            <h3>天啊！你发现了无人之地~</h3>
+            <h3>天啊！你发现了无人之地~<%=basePath%></h3>
             <p>
-                但是这里神马都木有 T_T<br /> <a href="<%=basePath%>">回家去</a> 再挣扎一下~.
+                但是这里神马都木有 T_T<br /> <a href="<%=basePath%>">回家去</a> 或 <a href="javascript:location.reload([true]) ">再挣扎一下~</a>
             </p>
             <form action="#">
                 <div class="input-group input-medium">
-                    <input type="text" class="form-control" placeholder="keyword..."> <span class="input-group-btn">
+                    <input type="text" class="form-control" placeholder="输入你想去的地方..."> <span class="input-group-btn">
                             <button type="submit" class="btn blue">
                                 <i class="fa fa-search"></i>
                             </button>
