@@ -16,4 +16,8 @@ public class UserController {
     public String index(){
         return "index";
     }
+    @RequestMapping("/")
+    public String main(){
+        return "main";
+    }
 }
