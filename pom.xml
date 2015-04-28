@@ -17,7 +17,7 @@
         <log4j.version>1.2.9</log4j.version>
         <jetty.version>8.1.16.v20140903</jetty.version>
         <jetty-version>6.1.26</jetty-version>
-        <shiro.version>6.1.26</shiro.version>
+        <shiro.version>1.2.3</shiro.version>
 
     </properties>
 

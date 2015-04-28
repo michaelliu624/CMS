@@ -5,7 +5,6 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.0.3
@@ -30,17 +29,17 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <meta content="" name="author"/>
 <meta name="MobileOptimized" content="320">
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="<c:url value="/WEB-INF/assets/plugins/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css"/>
-<link href="<c:url value="/WEB-INF/assets/plugins/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css"/>
-<link href="<c:url value="/WEB-INF/assets/plugins/uniform/css/uniform.default.css"/>" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/WEB-INF/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/WEB-INF/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/WEB-INF/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
 <link rel="stylesheet" type="text/css" href="<%=path%>/WEB-INF/assets/plugins/select2/select2_metro.css"/>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
-<link href="<c:url value="/WEB-INF/assets/css/style-metronic.css"/>" rel="stylesheet" type="text/css"/>
-<link href="<c:url value="/WEB-INF/assets/css/style.css"/>" rel="stylesheet" type="text/css"/>
-<link href="<c:url value="/WEB-INF/assets/css/style-responsive.css"/>" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/WEB-INF/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/WEB-INF/assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/WEB-INF/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 <link href="<%=path%>/WEB-INF/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
 <link href="<%=path%>/WEB-INF/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
 <link href="<%=path%>/WEB-INF/assets/css/pages/login-soft.css" rel="stylesheet" type="text/css"/>
