@@ -57,7 +57,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <div class="col-md-12 page-404">
         <div class="number">404错误</div>
         <div class="details">
-            <h3>天啊！你发现了无人之地~<%=basePath%></h3>
+            <h3>天啊！你发现了无人之地~</h3>
             <p>
                 但是这里神马都木有 T_T<br /> <a href="<%=basePath%>">回家去</a> 或 <a href="javascript:location.reload([true]) ">再挣扎一下~</a>
             </p>

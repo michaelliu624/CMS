@@ -29,23 +29,23 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <meta content="" name="author"/>
 <meta name="MobileOptimized" content="320">
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="<%=path%>/WEB-INF/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link rel="stylesheet" type="text/css" href="<%=path%>/WEB-INF/assets/plugins/select2/select2_metro.css"/>
+<link rel="stylesheet" type="text/css" href="<%=path%>/assets/plugins/select2/select2_metro.css"/>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
-<link href="<%=path%>/WEB-INF/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/css/style.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-<link href="<%=path%>/WEB-INF/assets/css/pages/login-soft.css" rel="stylesheet" type="text/css"/>
-<link href="<%=path%>/WEB-INF/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/css/style-metronic.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+<link href="<%=path%>/assets/css/pages/login-soft.css" rel="stylesheet" type="text/css"/>
+<link href="<%=path%>/assets/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="<%=path%>/WEB-INF/assets/app/img/favicon.ico"/>
+<link rel="shortcut icon" href="<%=path%>/assets/app/img/favicon.ico"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -449,28 +449,28 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]>
-	<script src="<%=path%>/WEB-INF/assets/plugins/respond.min.js"></script>
-	<script src="<%=path%>/WEB-INF/assets/plugins/excanvas.min.js"></script>
+	<script src="<%=path%>/assets/plugins/respond.min.js"></script>
+	<script src="<%=path%>/assets/plugins/excanvas.min.js"></script>
 	<![endif]-->
-<script src="<%=path%>/WEB-INF/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="<%=path%>/WEB-INF/assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="<%=path%>/WEB-INF/assets/plugins/select2/select2.min.js"></script>
+<script src="<%=path%>/assets/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="<%=path%>/assets/plugins/select2/select2.min.js"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="<%=path%>/WEB-INF/assets/scripts/app.js" type="text/javascript"></script>
-<script src="<%=path%>/WEB-INF/assets/scripts/login-soft.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/scripts/app.js" type="text/javascript"></script>
+<script src="<%=path%>/assets/scripts/login-soft.js" type="text/javascript"></script>
 
-<script src="<%=path%>/WEB-INF/app/lib/security/sha256.js" type="text/javascript"></script>
+<script src="<%=path%>/app/lib/security/sha256.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 		jQuery(document).ready(function() {     

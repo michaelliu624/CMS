@@ -13,6 +13,10 @@
     http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
     <context:component-scan base-package="com.springmvc"/>
+
+    <!-- 默认的注解映射的支持 -->
+    <mvc:annotation-driven />
+
     <!-- 避免IE在ajax请求时，返回json出现下载 -->
     <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
         <property name="supportedMediaTypes">
@@ -25,13 +29,21 @@
 
     <!-- 对模型视图添加前后缀 -->
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+
 
     <!-- 静态资源访问（不拦截此目录下的东西的访问） -->
-    <mvc:resources location="/WEB-INF/app/"  mapping="/app/**" />
-    <mvc:resources location="/WEB-INF/assets/"  mapping="/assets/**" />
-    <mvc:default-servlet-handler />
+    <mvc:resources location="WEB-INF/app/"  mapping="/app/**" />
+    <mvc:resources location="WEB-INF/assets/"  mapping="/assets/**" />
+    <!--<mvc:default-servlet-handler />-->
+
+<!--    &lt;!&ndash; 拦截器 &ndash;&gt;
+    <mvc:interceptors>
+        <bean class="com.springmvc.cms.Inteceptor.MyIteceptor" />
+    </mvc:interceptors>-->
+
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp" p:viewClass="org.springframework.web.servlet.view.JstlView"/>
 
 </beans>
 

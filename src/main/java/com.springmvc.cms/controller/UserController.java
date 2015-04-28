@@ -28,4 +28,8 @@ public class UserController {
     public String login(){
         return "login";
     }
+    @RequestMapping("login_success")
+    public String login_success(){
+        return "login_success" ;
+    }
 }
