@@ -9,4 +9,4 @@
 This is listUser.jsp
 <br/>
 <br/>
-<a href="<%=request.getContextPath()%>/logout" target="_blank">Logout</a>
+<a href="<%=request.getContextPath()%>/rest/logout" target="_blank">Logout</a>

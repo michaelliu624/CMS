@@ -3,7 +3,7 @@
 <script type="text/javascript">
     <!--
     function reloadVerifyCode(){
-        document.getElementById('verifyCodeImage').setAttribute('src', '<%=request.getContextPath()%>/rest/getVerifyCodeImage');
+        document.getElementById('verifyCodeImage').setAttribute('src', '${pageContext.request.contextPath}/rest/getVerifyCodeImage');
     }
     //-->
 </script>

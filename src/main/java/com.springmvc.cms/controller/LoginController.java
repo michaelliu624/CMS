@@ -46,7 +46,7 @@ public class LoginController {
         response.setHeader("Pragma","no-cache");
         response.setHeader("Cache-Control","no-cache");
         response.setDateHeader("Expires",0);
-        String verifyCode = VerifyCodeUtil.generateTextCode(VerifyCodeUtil.TYPE_NUM_ONLY, 4, null);
+        String verifyCode = VerifyCodeUtil.generateTextCode(VerifyCodeUtil.TYPE_NUM_LOWER, 4, null);
         request.getSession().setAttribute("verifyCode",verifyCode);
         System.out.println("本次生成的验证码为[" + verifyCode + "],已存放到HttpSession中");
         //设置输出的内容的类型为JPEG图像

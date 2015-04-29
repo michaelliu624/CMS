@@ -60,7 +60,7 @@
                 /rest/login=anon
                 /rest/getVerifyCodeImage=anon
                 /user/getUserInfo=authc
-                /user/listUser=authc,perm[admin:mange]
+                /user/listUser=authc,perms[admin:mange]
             </value>
         </property>
     </bean>
