@@ -116,7 +116,7 @@
 
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
 
     <!-- 错误跳转页面 -->
@@ -134,5 +134,9 @@
         <!-- 内部错误 -->
         <error-code>500</error-code>
         <location>/WEB-INF/views/500.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/WEB-INF/views/401.jsp</location>
     </error-page>
 </web-app>

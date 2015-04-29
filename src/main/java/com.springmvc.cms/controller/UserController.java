@@ -18,7 +18,7 @@ public class UserController {
     }
     @RequestMapping("/")
     public String main(){
-        return "main";
+        return "login";
     }
     @RequestMapping("test")
     public String test(){
@@ -32,4 +32,34 @@ public class UserController {
     public String login_success(){
         return "login_success" ;
     }
+    @RequestMapping("401")
+    public String error401(){
+        return "401";
+    }
+    @RequestMapping("405")
+    public String error405(){
+        return "405";
+    }
+    @RequestMapping("500")
+    public String error500(){
+        return "500";
+    }
+    @RequestMapping("dashboard")
+    public String dashboard(){
+        return "dashboard";
+    }
+    @RequestMapping("template")
+    public String template(){
+        return "template";
+    }
+
+    @RequestMapping("templates")
+     public String templates(){
+        return "templates";
+    }
+    @RequestMapping("tem")
+    public String tem(){
+        return "tem";
+    }
+
 }
