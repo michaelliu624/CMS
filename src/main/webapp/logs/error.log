@@ -2,3 +2,4 @@
 2015-04-29 10:03:56 [ main:516 ] - [ ERROR ] maxIdle is deprecated
 2015-04-29 10:12:45 [ main:437 ] - [ ERROR ] maxIdle is deprecated
 2015-04-29 10:13:37 [ Timer-1:374 ] - [ ERROR ] maxIdle is deprecated
+2015-04-29 17:40:44 [ Timer-1:309 ] - [ ERROR ] maxIdle is deprecated
