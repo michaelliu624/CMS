@@ -5,6 +5,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.0.3
@@ -58,7 +59,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN LOGIN -->
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="rest/user/login" method="post">
+	<form class="login-form" action="login_success" method="post">
 		<h3 class="form-title">用户登录</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
@@ -71,14 +72,14 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<label class="control-label visible-ie8 visible-ie9">用户名</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input name="username" id="username" size="25" value="starzou" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" />
+				<input name="username" id="username" size="25" value="michaelliu@sohu-inc.com" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">密码</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input name="password" id="password" size="25" value="123456" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" />
+				<input name="password" id="password" size="25" value="qwertyuiopas" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" />
 			</div>
 		</div>
 		<div class="form-actions">
@@ -101,7 +102,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	</form>
 	<!-- END LOGIN FORM -->
 	<!-- BEGIN FORGOT PASSWORD FORM -->
-	<form class="forget-form" action="index.html" method="post">
+	<form class="forget-form" action="index" method="post">
 		<h3>忘记密码 ?</h3>
 		<p>
 			 请输入您的电子邮箱地址来重置您的密码.
@@ -122,7 +123,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	</form>
 	<!-- END FORGOT PASSWORD FORM -->
 	<!-- BEGIN REGISTRATION FORM -->
-	<form class="register-form" action="index.html" method="post">
+	<form class="register-form" action="index" method="post">
 		<h3>注  册</h3>
 		<p>
 			 请输入您的个人信息:
@@ -443,7 +444,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- END LOGIN -->
 <!-- BEGIN COPYRIGHT -->
 <div class="copyright">
-	 2014 &copy; Eliteams - Quick4j
+	 2015 &copy; 校园管理系统 Michael.L
 </div>
 <!-- END COPYRIGHT -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
