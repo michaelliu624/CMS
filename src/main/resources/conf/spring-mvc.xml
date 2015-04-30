@@ -53,7 +53,8 @@
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
         <property name="loginUrl" value="/"/>
-        <property name="unauthorizedUrl" value="/"/>
+        <property name="successUrl" value="/user/indexpage"/>
+        <property name="unauthorizedUrl" value="/user/401"/>
 
         <property name="filterChainDefinitions">
             <value>

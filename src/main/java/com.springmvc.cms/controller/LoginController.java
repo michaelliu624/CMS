@@ -60,7 +60,7 @@ public class LoginController {
     public String login(HttpServletRequest request){
         String resultPageURL = InternalResourceViewResolver.REDIRECT_URL_PREFIX + "/" ;
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String password = request.getParameter("passwd");
         //获取HttpSession中的验证码
         String verifyCode = (String)request.getSession().getAttribute("verifyCode");
         //获取用户请求表单中输入的验证码
