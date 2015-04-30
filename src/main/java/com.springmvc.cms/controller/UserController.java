@@ -78,7 +78,20 @@ public class UserController {
     public String login(){
         return "login";
     }
-
-
-
+    @RequestMapping("/loginbak")
+    public String loginbak(){
+        return "loginbak";
+    }
+    @RequestMapping("/main")
+    public String main(){
+        return "/main";
+    }
+    @RequestMapping("/login_final")
+    public String login_final(){
+        return "/login_final";
+    }
+    @RequestMapping("/indexpage")
+    public String indexpage(){
+        return "indexpage";
+    }
 }

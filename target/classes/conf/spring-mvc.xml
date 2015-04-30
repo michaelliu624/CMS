@@ -60,6 +60,8 @@
                 /rest/login=anon
                 /rest/getVerifyCodeImage=anon
                 /user/getUserInfo=authc
+                /user/**=authc
+                /user/main=authc
                 /user/listUser=authc,perms[admin:mange]
             </value>
         </property>
@@ -92,6 +94,6 @@
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/views/" p:suffix=".jsp" p:viewClass="org.springframework.web.servlet.view.JstlView"/>
 
-    <mvc:view-controller path="/" view-name="forward:/user/login"/>
+    <mvc:view-controller path="/" view-name="forward:/user/login_final"/>
 </beans>
 
