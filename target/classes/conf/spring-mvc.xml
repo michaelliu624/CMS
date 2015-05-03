@@ -60,10 +60,11 @@
             <value>
                 /rest/login=anon
                 /rest/getVerifyCodeImage=anon
-                /user/getUserInfo=authc
+                /user/getUserInfo=authc,perms[admin:manage]
+                /user/listUser=authc,perms[admin:manage]
                 /user/**=authc
-                /user/main=authc
-                /user/listUser=authc,perms[admin:mange]
+                <!--/user/welcome=authc-->
+
             </value>
         </property>
     </bean>

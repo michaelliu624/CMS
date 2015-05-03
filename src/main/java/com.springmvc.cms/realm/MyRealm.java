@@ -38,8 +38,17 @@ public class MyRealm extends AuthorizingRealm{
             simpleAuthorInfo.addStringPermission("admin:manage");
             System.out.println("已为用户["+currentUsername+"]赋予了[admin]角色和[admin:manage]权限");
             return simpleAuthorInfo;
-        } else if (null != currentUsername && "玄玉".equals(currentUsername)) {
-            System.out.println("当前用户[玄玉]无授权");
+        } else if (null != currentUsername && "student".equals(currentUsername)) {
+            simpleAuthorInfo.addRole("student");
+            //添加权限
+            simpleAuthorInfo.addStringPermission("student:see");
+            System.out.println("已为用户["+currentUsername+"]赋予了[student]角色和[student:see]权限");
+            return simpleAuthorInfo;
+        }else if (null != currentUsername && "teacher".equals(currentUsername)) {
+            simpleAuthorInfo.addRole("teacher");
+            //添加权限
+            simpleAuthorInfo.addStringPermission("teacher:insert");
+            System.out.println("已为用户["+currentUsername+"]赋予了[teacher]角色和[teacher:insert]权限");
             return simpleAuthorInfo;
         }
         //若该方法什么都不做直接返回null的话,就会导致任何用户访问/admin/listUser.jsp时都会自动跳转到unauthorizedUrl指定的地址
@@ -73,9 +82,13 @@ public class MyRealm extends AuthorizingRealm{
             AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("michaelliu@sohu-inc.com", "michaelliu@sohu-inc.com", this.getName());
             this.setSession("currentUser", "michaelliu@sohu-inc.com");
             return authcInfo;
-        }else if("玄玉".equals(token.getUsername())){
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("玄玉", "xuanyu", this.getName());
-            this.setSession("currentUser", "玄玉");
+        }else if("student".equals(token.getUsername())){
+            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("student", "student", this.getName());
+            this.setSession("currentUser", "student");
+            return authcInfo;
+        }else if("teacher".equals(token.getUsername())){
+            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("teacher", "teacher", this.getName());
+            this.setSession("currentUser", "teacher");
             return authcInfo;
         }
         //没有返回登录用户名对应的SimpleAuthenticationInfo对象时,就会在LoginController中抛出UnknownAccountException异常

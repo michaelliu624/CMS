@@ -274,7 +274,7 @@ var Login = function() {
         });
     }
 
-    return {
+    /*return {
         // main function to initiate the module
         init : function() {
             console.log(12);
@@ -284,6 +284,23 @@ var Login = function() {
 
             $.backstretch([ "assets/img/bg/1.jpg", "assets/img/bg/2.jpg",
                     "assets/img/bg/3.jpg", "assets/img/bg/4.jpg" ], {
+                fade : 1000,
+                duration : 8000
+            });
+        }
+
+    };*/
+    return {
+        // main function to initiate the module
+        init : function() {
+            console.log(12);
+            handleLogin();
+            handleForgetPassword();
+            handleRegister();
+
+            $.backstretch([ "assets/img/bg/5.jpg", "assets/img/bg/6.jpg",
+                "assets/img/bg/7.jpg", "assets/img/bg/8.jpg",
+                "assets/img/bg/9.jpg", "assets/img/bg/10.jpg"], {
                 fade : 1000,
                 duration : 8000
             });

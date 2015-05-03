@@ -31,7 +31,10 @@ public class UserController {
         return "login_success" ;
     }
     @RequestMapping("/401")
-    public String error401(){
+    public String error401(HttpServletRequest request){
+        String currentUser = (String)request.getSession().getAttribute("currentUser");
+        System.out.println("当前登录的用户为[" + currentUser + "]");
+        request.setAttribute("currUser", currentUser);
         return "401";
     }
     @RequestMapping("/405")
@@ -44,7 +47,7 @@ public class UserController {
     }
     @RequestMapping("/dashboard")
     public String dashboard(){
-        return "dashboard";
+        return "dashboard_bak";
     }
     @RequestMapping("/template")
     public String template(){
@@ -93,5 +96,12 @@ public class UserController {
     @RequestMapping("/indexpage")
     public String indexpage(){
         return "indexpage";
+    }
+    @RequestMapping("/welcome")
+    public String welcome(HttpServletRequest request){
+        String currentUser = (String)request.getSession().getAttribute("currentUser");
+        System.out.println("当前登录的用户为[" + currentUser + "]");
+        request.setAttribute("currUser", currentUser);
+        return "welcome";
     }
 }

@@ -2787,9 +2787,39 @@ Dashboard stats
 
 .dashboard-stat.purple .more { 
   background-color: #6e1881;
-} 
+}
 
+.dashboard-stat.light-blue {
+    background-color: #00e3c4;
+}
 
+.dashboard-stat.light-blue .more {
+    background-color: #00977b;
+}
+
+.dashboard-stat.light-green {
+    background-color: #14fb00;
+}
+
+.dashboard-stat.light-green .more {
+    background-color: #13a900;
+}
+
+.dashboard-stat.orange {
+    background-color: #fb890c;
+}
+
+.dashboard-stat.orange .more {
+    background-color: #a5530c;
+}
+
+.dashboard-stat.pink {
+    background-color: #fbc3be;
+}
+
+.dashboard-stat.pink .more {
+    background-color: #9e7472;
+}
 /***
 Tiles(new in v1.1.1)
 ***/

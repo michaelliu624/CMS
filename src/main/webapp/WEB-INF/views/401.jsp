@@ -55,7 +55,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 		<div class=" details">
 			<h3>未授权</h3>
 			<p>
-				Please come back in a while.<br/><br/>
+				OOPS~您所在的用户组[${currUser}]没有相关权限，请联系管理员了解相关细节。<br/><br/>
 			</p>
 		</div>
 	</div>

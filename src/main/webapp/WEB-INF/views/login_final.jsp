@@ -65,7 +65,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form class="login-form" action="<%=path%>/rest/login" method="post">
-		<h3 class="form-title">用户登录</h3>
+		<h3 class="form-title">校园管理系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>
@@ -104,7 +104,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			登录 <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
-		<div class="forget-password">
+<%--		<div class="forget-password">
 			<h4>忘记密码 ?</h4>
 			<p>点击 <a href="javascript:;" id="forget-password">这里</a> 重置您的密码.
 			</p>
@@ -113,7 +113,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<p>
 				 还没有账号 ?&nbsp; <a href="javascript:;" id="register-btn">创建一个账号</a>
 			</p>
-		</div>
+		</div>--%>
+        <div class="create-account">
+                <h4>忘记密码 ?</h4>
+                <p>点击 <a href="javascript:;" id="forget-password" style="font-size: 18px">这里</a> 重置您的密码
+                </p>
+        </div>
 	</form>
 	<!-- END LOGIN FORM -->
 	<!-- BEGIN FORGOT PASSWORD FORM -->

@@ -7,7 +7,7 @@
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -115,7 +115,7 @@
                 </li>
 
                 <li class="start active">
-                    <a href="user/dashboard" id="btn-dashboard">
+                    <a href="javascript:;" id="btn-dashboard">
                         <i class="fa fa-home"></i><span class="title"> 首页 </span><span
                             class="selected"> </span>
                     </a>
@@ -163,21 +163,21 @@
                         </li>
 
                         <!-- 测试权限控制 -->
-                        <shiro:hasAnyRoles name="admin">
+                        <shiro:hasAnyRoles name="super_admin">
                             <li>
-                                <a href="javascript:;">admin 拥有此角色</a>
+                                <a href="javascript:;">super_admin 拥有此角色</a>
                             </li>
                         </shiro:hasAnyRoles>
 
-                        <shiro:hasPermission name="admin:manage">
+                        <shiro:hasPermission name="user:create">
                             <li>
-                                <a href="javascript:;">admin:manage1 拥有此权限</a>
+                                <a href="javascript:;">user:create 拥有此权限</a>
                             </li>
                         </shiro:hasPermission>
 
-                        <shiro:hasPermission name="admin:manage">
+                        <shiro:hasPermission name="user:update">
                             <li>
-                                <a href="javascript:;">admin:manage2 拥有此权限</a>
+                                <a href="javascript:;">user:update 拥有此权限</a>
                             </li>
                         </shiro:hasPermission>
 
@@ -289,6 +289,12 @@
                         <li>
                             <a href="<%=path%>/user/indexpage">
                                 菜单
+                            </a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="<%=path%>/in/subject">
+                                课程查询
                             </a>
                         </li>
                     </ul>

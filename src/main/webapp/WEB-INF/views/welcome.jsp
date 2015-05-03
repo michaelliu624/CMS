@@ -7,7 +7,7 @@
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -115,10 +115,42 @@
                 </li>
 
                 <li class="start active">
-                    <a href="user/dashboard" id="btn-dashboard">
+                    <a href="javascript:;" id="btn-dashboard">
                         <i class="fa fa-home"></i><span class="title"> 首页 </span><span
                             class="selected"> </span>
                     </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="javascript:;">
+                                课程查看
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                成绩查看
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                个人课表
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                注册信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                体检查看
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                待添加
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="">
@@ -277,11 +309,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title" id="index-page-title">我的菜单</h3>
-                    <ul class="page-breadcrumb breadcrumb">
+                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${currUser}</h3>
+                    <img src="/assets/img/ncut-bg.jpg" width="800px"; height="450"; style="position:relative; left:0px; top:50px; ">
+                    <a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>
+                   <%-- <ul class="page-breadcrumb breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
-                            <a href="<%=path%>/user/welcome">
+                            <a href="<%=path%>/user/indexpage">
                                 首页
                             </a>
                             <i class="fa fa-angle-right"></i>
@@ -291,7 +325,7 @@
                                 菜单
                             </a>
                         </li>
-                    </ul>
+                    </ul>--%>
                     <!-- END PAGE TITLE & BREADCRUMB-->
                 </div>
             </div>
