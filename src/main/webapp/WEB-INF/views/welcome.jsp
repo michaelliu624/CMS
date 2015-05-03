@@ -7,12 +7,11 @@
 --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -21,6 +20,41 @@
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
+<%--    <script>
+        function newPage(act){
+            var actionUrl=act;
+            $.ajax({
+                url : actionUrl ,
+                beforeSend :function(xmlHttp){  // deforeSend 是请求前清除缓存  ，如果没有缓存也不使用beforeSend
+                    xmlHttp.setRequestHeader("If-Modified-Since","0");
+                    xmlHttp.setRequestHeader("Cache-Control","no-cache");
+                } ,
+                success : function(data) { //data 是返回的数据
+                    $("#row").html(data); // id books 是右边的一个显示图书列表的 div
+                }
+            });
+        }
+    </script>--%>
+    <script>
+        function newPage(act){
+            var url = act;
+            var data = {type:1};
+            $.ajax({
+                type : "get",
+                async : false,  //同步请求
+                url : url,
+                data : data,
+                timeout:1000,
+                success:function(dates){
+                    //alert(dates);
+                    $("#pages").html(dates);//要刷新的div
+                },
+                error: function() {
+                     alert("失败，请稍后再试！");
+                }
+            });
+        };
+    </script>
     <base href="<%=basePath%>">
     <meta charset="utf-8" />
     <title>CMS</title>
@@ -121,7 +155,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/subject')" ;>
                                 课程查看
                             </a>
                         </li>
@@ -306,7 +340,7 @@
             <!-- END STYLE CUSTOMIZER -->
 
             <!-- BEGIN PAGE HEADER-->
-            <div class="row">
+            <div class="row" id="pages">
                 <div class="col-md-12">
                     <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                     <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${currUser}</h3>
