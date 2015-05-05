@@ -84,7 +84,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<label class="control-label visible-ie8 visible-ie9">密码</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input name="passwd" id="passwd" size="25" value="michaelliu@sohu-inc.com" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="密码" />
+				<input name="passwd" id="passwd" size="25" value="michaelliu@sohu-inc.com" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" />
 			</div>
 		</div>
         <div class="form-group">
@@ -143,7 +143,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	</form>
 	<!-- END FORGOT PASSWORD FORM -->
 	<!-- BEGIN REGISTRATION FORM -->
-	<form class="register-form" action="index" method="post">
+	<%--<form class="register-form" action="index" method="post">
 		<h3>注  册</h3>
 		<p>
 			 请输入您的个人信息:
@@ -458,7 +458,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			注册 <i class="m-icon-swapright m-icon-white"></i>
 			</button>
 		</div>
-	</form>
+	</form>--%>
 	<!-- END REGISTRATION FORM -->
 </div>
 <!-- END LOGIN -->

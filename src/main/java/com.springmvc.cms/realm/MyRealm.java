@@ -44,7 +44,7 @@ public class MyRealm extends AuthorizingRealm{
             simpleAuthorInfo.addStringPermission("student:see");
             System.out.println("已为用户["+currentUsername+"]赋予了[student]角色和[student:see]权限");
             return simpleAuthorInfo;
-        }else if (null != currentUsername && "teacher".equals(currentUsername)) {
+        } else if (null != currentUsername && "teacher".equals(currentUsername)) {
             simpleAuthorInfo.addRole("teacher");
             //添加权限
             simpleAuthorInfo.addStringPermission("teacher:insert");
