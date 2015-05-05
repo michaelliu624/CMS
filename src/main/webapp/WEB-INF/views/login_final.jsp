@@ -65,7 +65,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form class="login-form" action="<%=path%>/rest/login" method="post">
-		<h3 class="form-title">校园管理系统</h3>
+		<h3 class="form-title">高校学生管理系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>

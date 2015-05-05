@@ -160,12 +160,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/score')" ;>
                                 成绩查看
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/timetable')" ;>
                                 个人课表
                             </a>
                         </li>
@@ -344,7 +344,7 @@
                 <div class="col-md-12">
                     <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                     <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${currUser}</h3>
-                    <img src="/assets/img/ncut-bg.jpg" width="800px"; height="450"; style="position:relative; left:0px; top:50px; ">
+                    <img src="/assets/img/ncut-bg1.jpg" width="800px"; height="450"; style="position:relative; left:0px; top:50px; ">
                     <a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>
                    <%-- <ul class="page-breadcrumb breadcrumb">
                         <li>

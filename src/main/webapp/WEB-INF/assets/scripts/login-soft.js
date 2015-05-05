@@ -274,7 +274,7 @@ var Login = function() {
         });
     }
 
-    /*return {
+    return {
         // main function to initiate the module
         init : function() {
             console.log(12);
@@ -289,8 +289,8 @@ var Login = function() {
             });
         }
 
-    };*/
-    return {
+    };
+    /*return {
         // main function to initiate the module
         init : function() {
             console.log(12);
@@ -306,6 +306,6 @@ var Login = function() {
             });
         }
 
-    };
+    };*/
 
 }();
