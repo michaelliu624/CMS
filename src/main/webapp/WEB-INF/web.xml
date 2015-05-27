@@ -102,7 +102,7 @@
 
 
     <welcome-file-list>
-        <welcome-file>login</welcome-file>
+        <welcome-file>/user/login</welcome-file>
     </welcome-file-list>
 
     <!-- 错误跳转页面 -->

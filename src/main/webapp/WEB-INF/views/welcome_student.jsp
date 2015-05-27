@@ -150,23 +150,23 @@
 
                 <li class="start active">
                     <a href="javascript:;" id="btn-dashboard">
-                        <i class="fa fa-home"></i><span class="title"> 首页 </span><span
+                        <i class="fa fa-home"></i><span class="title"> 个人信息 </span><span
                             class="selected"> </span>
                     </a>
                     <ul class="sub-menu">
                         <li>
                             <a href="javascript:;" onclick="newPage('<%=path%>/in/subject')" ;>
-                                课程查看
+                                基本信息
                             </a>
                         </li>
                         <li>
                             <a href="javascript:;" onclick="newPage('<%=path%>/in/score')" ;>
-                                成绩查看
+                                注册状态
                             </a>
                         </li>
                         <li>
                             <a href="javascript:;" onclick="newPage('<%=path%>/in/timetable')" ;>
-                                个人课表
+                                宿舍状态
                             </a>
                         </li>
                         <li>
@@ -189,7 +189,7 @@
 
                 <li class="">
                     <a href="javascript:;">
-                        <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
+                        <i class="fa fa-gears"></i><span class="title"> 选课查看 </span><span
                             class="arrow "> </span>
                     </a>
                     <ul class="sub-menu">
@@ -213,7 +213,7 @@
 
                 <li class="">
                     <a href="javascript:;">
-                        <i class="fa fa-user"></i><span class="title"> 个人中心 </span><span
+                        <i class="fa fa-calendar"></i><span class="title"> 成绩查看 </span><span
                             class="arrow "> </span>
                     </a>
                     <ul class="sub-menu">
@@ -227,26 +227,63 @@
                                 密码修改
                             </a>
                         </li>
+                    </ul>
+                </li>
 
-                        <!-- 测试权限控制 -->
-                        <shiro:hasAnyRoles name="admin">
-                            <li>
-                                <a href="javascript:;">admin 拥有此角色</a>
-                            </li>
-                        </shiro:hasAnyRoles>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i><span class="title"> 作业查看 </span><span
+                            class="arrow "> </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="javascript:;">
+                                信息修改
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                密码修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                        <shiro:hasPermission name="admin:manage">
-                            <li>
-                                <a href="javascript:;">admin:manage1 拥有此权限</a>
-                            </li>
-                        </shiro:hasPermission>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i><span class="title"> 体检信息 </span><span
+                            class="arrow "> </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="javascript:;">
+                                信息修改
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                密码修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                        <shiro:hasPermission name="admin:manage">
-                            <li>
-                                <a href="javascript:;">admin:manage2 拥有此权限</a>
-                            </li>
-                        </shiro:hasPermission>
-
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i><span class="title"> 信息汇总 </span><span
+                            class="arrow "> </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="javascript:;">
+                                信息修改
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                密码修改
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

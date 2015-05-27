@@ -55,8 +55,16 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 		<div class=" details">
 			<h3>未授权</h3>
 			<p>
-				OOPS~您所在的用户组[${currUser}]没有相关权限，请联系管理员了解相关细节。<br/><br/>
+				OOPS~您所在的用户组[${currUser}]没有相关权限，请联系管理员
+                <a href="javascript:;" onclick="jsCopy('michaelliu@sohu-inc.com')" ;>
+                    michaelliu@sohu-inc.com
+                </a>
+                了解相关细节。<br/><br/>
 			</p>
+            <p>
+                点击 <a href="<%=request.getContextPath()%>" id="" style="font-size: 18px">这里</a> 返回登录页面
+            </p>
+
 		</div>
 	</div>
 </div>
@@ -80,6 +88,18 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 jQuery(document).ready(function() {    
    App.init();
 });
+</script>
+
+<script>
+function jsCopy(obj_id) {
+    var objinput=obj_id;
+    var e=document.getElementById(objinput);//对象是content
+    window.clipboardData.setData("Text",e.value);
+    alert("管理员邮箱地址已复制到您的剪切板");
+    /*var winname = window.open('', '', '');
+    winname.opener = null;
+    winname.document.open('text/html', 'replace');*/
+}
 </script>
 <!-- END JAVASCRIPTS -->
 </body>

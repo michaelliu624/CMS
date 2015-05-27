@@ -5,11 +5,11 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<script type="text/javascript">
+<%--<script type="text/javascript">
     function reloadVerifyCode(){
         document.getElementById('verifyCodeImage').setAttribute('src', '${pageContext.request.contextPath}/rest/getVerifyCodeImage');
     }
-</script>
+</script>--%>
 
 <!DOCTYPE html>
 <!-- 
@@ -77,26 +77,26 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			<label class="control-label visible-ie8 visible-ie9">用户名</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input name="username" id="username" size="25" value="michaelliu@sohu-inc.com" class="form-control placeholder-no-fix" type="text" autocomplete="on" placeholder="用户名" />
+				<input name="username" id="username" size="25" value="student" class="form-control placeholder-no-fix" type="text" autocomplete="on" placeholder="用户名" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">密码</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input name="passwd" id="passwd" size="25" value="michaelliu@sohu-inc.com" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" />
+				<input name="passwd" id="passwd" size="25" value="student" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" />
 			</div>
 		</div>
-        <div class="form-group">
+       <%-- <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">验证码</label>
             <div class="input-icon">
                 <i class="fa fa-lock"></i>
                 <input name="verifyCode" id="verifyCode" size="25" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="验证码" />
                 <img id="verifyCodeImage" onclick="reloadVerifyCode()" src="<%=path%>/rest/getVerifyCodeImage"/><br/>
             </div>
-            <%--&nbsp;&nbsp;--%>
+            &lt;%&ndash;&nbsp;&nbsp;&ndash;%&gt;
 
-        </div>
+        </div>--%>
 		<div class="form-actions">
 			<label class="checkbox">
 			<input type="checkbox" name="remember" value="1"/> 记住我 </label>

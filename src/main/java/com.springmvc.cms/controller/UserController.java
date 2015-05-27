@@ -97,11 +97,29 @@ public class UserController {
     public String indexpage(){
         return "indexpage";
     }
-    @RequestMapping("/welcome")
-    public String welcome(HttpServletRequest request){
+
+    @RequestMapping("/welcome_admin")
+    public String welcome_admin(HttpServletRequest request){
         String currentUser = (String)request.getSession().getAttribute("currentUser");
         System.out.println("当前登录的用户为[" + currentUser + "]");
         request.setAttribute("currUser", currentUser);
-        return "welcome";
+        return "welcome_admin";
     }
+
+    @RequestMapping("/welcome_student")
+    public String welcome_student(HttpServletRequest request){
+        String currentUser = (String)request.getSession().getAttribute("currentUser");
+        System.out.println("当前登录的用户为[" + currentUser + "]");
+        request.setAttribute("currUser", currentUser);
+        return "welcome_student";
+    }
+
+    @RequestMapping("/welcome_teacher")
+    public String welcome_teacher(HttpServletRequest request){
+        String currentUser = (String)request.getSession().getAttribute("currentUser");
+        System.out.println("当前登录的用户为[" + currentUser + "]");
+        request.setAttribute("currUser", currentUser);
+        return "welcome_teacher";
+    }
+
 }

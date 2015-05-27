@@ -62,14 +62,14 @@ public class LoginController {
         String username = request.getParameter("username");
         String password = request.getParameter("passwd");
         //获取HttpSession中的验证码
-        String verifyCode = (String)request.getSession().getAttribute("verifyCode");
+        //String verifyCode = (String)request.getSession().getAttribute("verifyCode");
         //获取用户请求表单中输入的验证码
         String submitCode = WebUtils.getCleanParam(request, "verifyCode");
-        System.out.println("用户[" + username + "]登录时输入的验证码为[" + submitCode + "],HttpSession中的验证码为[" + verifyCode + "]");
-        if (StringUtils.isEmpty(submitCode) || !StringUtils.equals(verifyCode, submitCode.toLowerCase())){
+        //System.out.println("用户[" + username + "]登录时输入的验证码为[" + submitCode + "],HttpSession中的验证码为[" + verifyCode + "]");
+        /*if (StringUtils.isEmpty(submitCode) || !StringUtils.equals(verifyCode, submitCode.toLowerCase())){
             request.setAttribute("message_login", "验证码不正确");
             return resultPageURL;
-        }
+        }*/
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         token.setRememberMe(true);
         System.out.println("为了验证登录用户而封装的token为" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
