@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springmvc.cms.mapper.StudentMapper">
+    
+    <resultMap id="studentResultMap" type="Student">
+        <id property="id" column="ID"/>
+        <result property="name" column="name"/>
+        <result property="sex" column="sex"/>
+        <result property="others" column="others"/>
+        <result property="academy" column="academy"/>
+        <result property="major" column="major"/>
+        <result property="classes" column="classes"/>
+        
+    </resultMap>
+
+    <!--根据学号查询学生-->
+    <select id="getStudent" parameterType="String" resultType="Student" resultMap="studentResultMap">
+        <![CDATA[
+            SELECT * from student_test.student st
+              WHERE st.id = #{id}
+        ]]>
+    </select>
+
+    <!--查看所有学生-->
+    <select id="getStudentAll" resultType="Student" resultMap="studentResultMap">
+        <![CDATA[
+            SELECT * FROM student_test.student
+        ]]>
+    </select>
+    
+</mapper>

@@ -5,10 +5,11 @@
 <configuration>
     <!-- 命名空间 -->
     <typeAliases>
-        <typeAlias alias="User" type="com.springmvc.cms.model.User"/>
+        <typeAlias type="com.springmvc.cms.model.Student" alias="Student"/>
     </typeAliases>
 
     <!-- 映射map -->
     <mappers>
+       <!-- <mapper resource="/mapper/StudentMapper.xml"/>--> <!--路径配置可能有问题，要注意下-->
     </mappers>
 </configuration>

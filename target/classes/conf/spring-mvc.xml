@@ -60,6 +60,7 @@
             <value>
                 /rest/login=anon
                 /rest/getVerifyCodeImage=anon
+                /rest/test/**=anon
                 /user/getUserInfo=authc,perms[admin:manage]
                 /user/listUser=authc,perms[admin:manage]
                 /user/**=authc
