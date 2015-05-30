@@ -69,7 +69,7 @@
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory"
           class="org.mybatis.spring.SqlSessionFactoryBean"
-          p:dataSource="dataSource"
+          p:dataSource-ref="dataSource"
           p:configLocation="classpath:conf/mybatis-config.xml"
           p:mapperLocations="classpath:mapper/*.xml"/><!-- configLocation为mybatis属性 mapperLocations为所有mapper-->
 
@@ -77,12 +77,12 @@
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
           p:basePackage="com.springmvc.cms.mapper"
-          p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
+          p:sqlSessionFactoryBeanName="sqlSessionFactory"/><!--p:sqlSessionFactoryBeanName="sqlSessionFactory"-->
 
     <!-- 对数据源进行事务管理 -->
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-          p:dataSource="dataSource"/>
+          p:dataSource-ref="dataSource"/>
 
 <!--    <bean id="studentMapper" class="org.mybatis.spring.MapperFactoryBean">
         <property name="mapperInterface" value="com.springmvc.cms.mapper.StudentMapper" />
