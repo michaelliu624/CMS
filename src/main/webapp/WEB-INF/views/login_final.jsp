@@ -28,7 +28,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <head>
 <base href="<%=basePath%>">
 <meta charset="utf-8"/>
-<title>登录到 CMS</title>
+<title>NCUT校园管理系统</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
@@ -65,7 +65,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <div class="content">
 	<!-- BEGIN LOGIN FORM -->
 	<form class="login-form" action="<%=path%>/rest/login" method="post">
-		<h3 class="form-title">高校学生管理系统</h3>
+		<h3 class="form-title">NCUT校园管理系统</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>
@@ -125,14 +125,28 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 	<form class="forget-form" action="index" method="post">
 		<h3>忘记密码 ?</h3>
 		<p>
-			 请输入您的电子邮箱地址来重置您的密码.
+			 请输入您的登记信息来重置您的密码.
 		</p>
 		<div class="form-group">
 			<div class="input-icon">
 				<i class="fa fa-envelope"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email"/>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="邮箱" name="邮箱"/>
 			</div>
 		</div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">地址</label>
+            <div class="input-icon">
+                <i class="fa fa-check"></i>
+                <input class="form-control placeholder-no-fix" type="text" placeholder="学号" name="学号"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">城市</label>
+            <div class="input-icon">
+                <i class="fa fa-location-arrow"></i>
+                <input class="form-control placeholder-no-fix" type="text" placeholder="身份证号" name="身份证号"/>
+            </div>
+        </div>
 		<div class="form-actions">
 			<button type="button" id="back-btn" class="btn">
 			<i class="m-icon-swapleft"></i> 返回 </button>

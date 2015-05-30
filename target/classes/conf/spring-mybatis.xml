@@ -18,6 +18,8 @@
     http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
+    <context:property-placeholder location="classpath:conf/jdbc.properties" />
+
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close" >
         <property name="driverClassName">
@@ -73,6 +75,7 @@
           p:configLocation="classpath:conf/mybatis-config.xml"
           p:mapperLocations="classpath:mapper/*.xml"/><!-- configLocation为mybatis属性 mapperLocations为所有mapper-->
 
+    <!-- 可通过注解控制事务 -->
     <tx:annotation-driven />
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
