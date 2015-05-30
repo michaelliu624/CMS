@@ -39,8 +39,6 @@
 <shiro:hasPermission name="teacher:insert">
     <a href="<%=request.getContextPath()%>/user/welcome_teacher"></a>
 </shiro:hasPermission>
-<%--<a href="<%=request.getContextPath()%>/user/getUserInfo"></a>--%>
-
 
 <script language="JavaScript">
     var comment = document.getElementsByTagName('a')[0];
