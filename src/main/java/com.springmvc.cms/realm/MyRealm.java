@@ -1,5 +1,9 @@
 package com.springmvc.cms.realm;
 
+import com.springmvc.cms.model.Student;
+import com.springmvc.cms.model.StudentLogin;
+import com.springmvc.cms.service.SelectStudentService;
+import com.springmvc.cms.service.StudentLoginService;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.shiro.SecurityUtils;
@@ -10,6 +14,9 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 自定义的指定Shiro验证用户登录的类
@@ -24,20 +31,29 @@ public class MyRealm extends AuthorizingRealm{
      * @see 个人感觉若使用了Spring3.1开始提供的ConcurrentMapCache支持,则可灵活决定是否启用AuthorizationCache
      * @see 比如说这里从数据库获取权限信息时,先去访问Spring3.1提供的缓存,而不使用Shior提供的AuthorizationCache
      */
+    @Resource(name = "studentLoginService")
+    private StudentLoginService studentLoginService;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         //获取当前登录的用户名,等价于(String)principals.fromRealm(this.getName()).iterator().next()
         String currentUsername = (String) super.getAvailablePrincipal(principals);
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
 
+
+
         //实际中可能会像上面注释的那样从数据库取得
-        if (null != currentUsername && "michaelliu@sohu-inc.com".equals(currentUsername)) {
+        if(!currentUsername.equals("student")){
+        List<StudentLogin> result = this.studentLoginService.getStudentByID(currentUsername);
+        String user = result.get(0).getId();
+        if (null != currentUsername && user.equals(currentUsername)) {
             //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
             simpleAuthorInfo.addRole("admin");
             //添加权限
             simpleAuthorInfo.addStringPermission("admin:manage");
-            System.out.println("已为用户["+currentUsername+"]赋予了[admin]角色和[admin:manage]权限");
+            System.out.println("已为用户[" + currentUsername + "]赋予了[admin]角色和[admin:manage]权限");
             return simpleAuthorInfo;
+        }
         } else if (null != currentUsername && "student".equals(currentUsername)) {
             simpleAuthorInfo.addRole("student");
             //添加权限
@@ -78,10 +94,17 @@ public class MyRealm extends AuthorizingRealm{
         //此处无需比对,比对的逻辑Shiro会做,我们只需返回一个和令牌相关的正确的验证信息
         //说白了就是第一个参数填登录用户名,第二个参数填合法的登录密码(可以是从数据库中取到的,本例中为了演示就硬编码了)
         //这样一来,在随后的登录页面上就只有这里指定的用户和密码才能通过验证
-        if("michaelliu@sohu-inc.com".equals(token.getUsername())){
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("michaelliu@sohu-inc.com", "michaelliu@sohu-inc.com", this.getName());
-            this.setSession("currentUser", "michaelliu@sohu-inc.com");
-            return authcInfo;
+
+        if(!"student".equals(token.getUsername())) {
+            List<StudentLogin> id = this.studentLoginService.getStudentByID(token.getUsername());
+            List<StudentLogin> passwd = this.studentLoginService.getStudentPasswdByID(token.getUsername());
+            String id_select = id.get(0).getId();
+            String passwd_select = passwd.get(0).getPasswd();
+            if (id_select.equals(token.getUsername())) {
+                AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(id_select, passwd_select, this.getName());
+                this.setSession("currentUser", id_select);
+                return authcInfo;
+            }
         }else if("student".equals(token.getUsername())){
             AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("student", "student", this.getName());
             this.setSession("currentUser", "student");

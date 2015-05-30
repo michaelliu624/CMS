@@ -8,10 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * 处理登录后菜单点击跳转
@@ -32,12 +29,11 @@ public class IndexController {
     @Resource(name = "selectStudentService")
     private SelectStudentService selectStudentService;
     @RequestMapping(value = "/subject")
-    public ModelAndView selctInfo(HttpServletResponse response) throws Exception{
+    public ModelAndView selectInfo(HttpServletResponse response) throws Exception{
 
         Map<String,Object> map = new HashMap<String, Object>();
 
         List<Student> result = this.selectStudentService.find();
-        map.put("result",result);
         return new ModelAndView("welcome/subject",map);
     }
 
