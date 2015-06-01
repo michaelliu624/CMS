@@ -21,7 +21,10 @@ public interface StudentLoginMapper {
     @Results(value = { @Result(id = true, property = "id", column = "id"),
             @Result(property = "name", column = "name"),
             @Result(property = "id_number", column = "id_number"),
-            @Result(property = "passwd", column = "passwd")
+            @Result(property = "passwd", column = "passwd"),
+            @Result(property = "role", column = "role"),
+            @Result(property = "permission", column = "permission")
+
     })
     List<StudentLogin> operateReturnBeans(@Param(value = "sql") String sql);
 }

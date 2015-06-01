@@ -16,6 +16,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 
 import javax.annotation.Resource;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -39,33 +40,61 @@ public class MyRealm extends AuthorizingRealm{
         //获取当前登录的用户名,等价于(String)principals.fromRealm(this.getName()).iterator().next()
         String currentUsername = (String) super.getAvailablePrincipal(principals);
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
+        //获取学生ID
+        List<StudentLogin> studentByID = this.studentLoginService.getStudentByID(currentUsername);
+        //获取学生角色
+        List<StudentLogin> studentRoleByID = this.studentLoginService.getStudentRoleByID(currentUsername);
+        //获取学生权限
+        List<StudentLogin> studentPermissionByID = this.studentLoginService.getStudentPermissionByID(currentUsername);
 
+        //获取教师ID
+        List<StudentLogin> teacherByID = this.studentLoginService.getTeacherByID(currentUsername);
+        //获取教师角色
+        List<StudentLogin> teacherRoleByID = this.studentLoginService.getTeacherRoleByID(currentUsername);
+        //获取教师权限
+        List<StudentLogin> teacherPermissionByID = this.studentLoginService.getTeacherPermissionByID(currentUsername);
 
+        //获取管理员ID
+        List<StudentLogin> adminByID = this.studentLoginService.getAdminByID(currentUsername);
+        //获取管理员角色
+        List<StudentLogin> adminRoleByID = this.studentLoginService.getAdminRoleByID(currentUsername);
+        //获取管理员权限
+        List<StudentLogin> adminPermissionByID = this.studentLoginService.getAdminPermissionByID(currentUsername);
 
-        //实际中可能会像上面注释的那样从数据库取得
-        if(!currentUsername.equals("student")){
-        List<StudentLogin> result = this.studentLoginService.getStudentByID(currentUsername);
-        String user = result.get(0).getId();
-        if (null != currentUsername && user.equals(currentUsername)) {
-            //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
-            simpleAuthorInfo.addRole("admin");
-            //添加权限
-            simpleAuthorInfo.addStringPermission("admin:manage");
-            System.out.println("已为用户[" + currentUsername + "]赋予了[admin]角色和[admin:manage]权限");
-            return simpleAuthorInfo;
-        }
-        } else if (null != currentUsername && "student".equals(currentUsername)) {
-            simpleAuthorInfo.addRole("student");
-            //添加权限
-            simpleAuthorInfo.addStringPermission("student:see");
-            System.out.println("已为用户["+currentUsername+"]赋予了[student]角色和[student:see]权限");
-            return simpleAuthorInfo;
-        } else if (null != currentUsername && "teacher".equals(currentUsername)) {
-            simpleAuthorInfo.addRole("teacher");
-            //添加权限
-            simpleAuthorInfo.addStringPermission("teacher:insert");
-            System.out.println("已为用户["+currentUsername+"]赋予了[teacher]角色和[teacher:insert]权限");
-            return simpleAuthorInfo;
+        if (studentByID !=null && ! studentByID.isEmpty()) {
+            String student_id = studentByID.get(0).getId();
+            if (null != currentUsername && student_id.equals(currentUsername)) {
+                //添加一个角色,不是配置意义上的添加,而是证明该用户拥有admin角色
+                String student_role = studentRoleByID.get(0).getRole();
+                String student_permission = studentPermissionByID.get(0).getPermisson();
+                simpleAuthorInfo.addRole(student_role);
+                //添加权限
+                simpleAuthorInfo.addStringPermission(student_permission);
+                System.out.println("已为用户[" + currentUsername + "]赋予了"+ student_role +"角色和"+ student_permission +"权限");
+                return simpleAuthorInfo;
+            }
+        }else if (teacherByID !=null && ! teacherByID.isEmpty()) {
+            String teacher = teacherByID.get(0).getId();
+            if (null != currentUsername && teacher.equals(currentUsername)) {
+                String teacher_role = teacherRoleByID.get(0).getRole();
+                String teacher_permission = teacherPermissionByID.get(0).getPermisson();
+                simpleAuthorInfo.addRole(teacher_role);
+                //添加权限
+                simpleAuthorInfo.addStringPermission(teacher_permission);
+                System.out.println("已为用户[" + currentUsername + "]赋予了"+ teacher_role +"角色和"+ teacher_permission +"权限");
+                return simpleAuthorInfo;
+            }
+        }else if (adminByID !=null && ! adminByID.isEmpty()) {
+            String admin = adminByID.get(0).getId();
+            if (null != currentUsername && admin.equals(currentUsername)) {
+                String admin_role = adminRoleByID.get(0).getRole();
+                String admin_permission = adminPermissionByID.get(0).getPermisson();
+                simpleAuthorInfo.addRole(admin_role);
+                //添加权限
+                simpleAuthorInfo.addStringPermission(admin_permission);
+                System.out.println("已为用户[" + currentUsername + "]赋予了"+ admin_role +"角色和"+ admin_permission +"权限");
+                return simpleAuthorInfo;
+            }
         }
         //若该方法什么都不做直接返回null的话,就会导致任何用户访问/admin/listUser.jsp时都会自动跳转到unauthorizedUrl指定的地址
         //详见applicationContext.xml中的<bean id="shiroFilter">的配置
@@ -81,38 +110,45 @@ public class MyRealm extends AuthorizingRealm{
         //获取基于用户名和密码的令牌
         //实际上这个authcToken是从LoginController里面currentUser.login(token)传过来的
         //两个token的引用都是一样的,本例中是org.apache.shiro.authc.UsernamePasswordToken@33799a1e
+
         UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
         System.out.println("验证当前Subject时获取到token为" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
-//      User user = userService.getByUsername(token.getUsername());
-//      if(null != user){
-//          AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(), user.getNickname());
-//          this.setSession("currentUser", user);
-//          return authcInfo;
-//      }else{
-//          return null;
-//      }
+
         //此处无需比对,比对的逻辑Shiro会做,我们只需返回一个和令牌相关的正确的验证信息
         //说白了就是第一个参数填登录用户名,第二个参数填合法的登录密码(可以是从数据库中取到的,本例中为了演示就硬编码了)
         //这样一来,在随后的登录页面上就只有这里指定的用户和密码才能通过验证
+        List<StudentLogin> student_id = this.studentLoginService.getStudentByID(token.getUsername());
+        List<StudentLogin> student_passwd = this.studentLoginService.getStudentPasswdByID(token.getUsername());
 
-        if(!"student".equals(token.getUsername())) {
-            List<StudentLogin> id = this.studentLoginService.getStudentByID(token.getUsername());
-            List<StudentLogin> passwd = this.studentLoginService.getStudentPasswdByID(token.getUsername());
-            String id_select = id.get(0).getId();
-            String passwd_select = passwd.get(0).getPasswd();
+        List<StudentLogin> teacher_id = this.studentLoginService.getTeacherByID(token.getUsername());
+        List<StudentLogin> teacher_passwd = this.studentLoginService.getTeacherPasswdByID(token.getUsername());
+
+        List<StudentLogin> admin_id = this.studentLoginService.getAdminByID(token.getUsername());
+        List<StudentLogin> admin_passwd = this.studentLoginService.getAdminPasswdByID(token.getUsername());
+        if(student_id !=null && ! student_id.isEmpty() && student_passwd !=null && ! student_passwd.isEmpty()) {
+                String id_select = student_id.get(0).getId();
+                String passwd_select = student_passwd.get(0).getPasswd();
+                if (id_select.equals(token.getUsername())) {
+                    AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(id_select, passwd_select, this.getName());
+                    this.setSession("currentUser", id_select);
+                    return authcInfo;
+                }
+        }else if(teacher_id !=null && ! teacher_id.isEmpty() && teacher_passwd !=null && ! teacher_passwd.isEmpty()) {
+            String id_select = teacher_id.get(0).getId();
+            String passwd_select = teacher_passwd.get(0).getPasswd();
+            if(id_select.equals(token.getUsername())) {
+                AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(id_select, passwd_select, this.getName());
+                this.setSession("currentUser", id_select);
+                return authcInfo;
+            }
+        }else if(admin_id !=null && ! admin_id.isEmpty() && admin_passwd !=null && ! admin_passwd.isEmpty()) {
+            String id_select = admin_id.get(0).getId();
+            String passwd_select = admin_passwd.get(0).getPasswd();
             if (id_select.equals(token.getUsername())) {
                 AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(id_select, passwd_select, this.getName());
                 this.setSession("currentUser", id_select);
                 return authcInfo;
             }
-        }else if("student".equals(token.getUsername())){
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("student", "student", this.getName());
-            this.setSession("currentUser", "student");
-            return authcInfo;
-        }else if("teacher".equals(token.getUsername())){
-            AuthenticationInfo authcInfo = new SimpleAuthenticationInfo("teacher", "teacher", this.getName());
-            this.setSession("currentUser", "teacher");
-            return authcInfo;
         }
         //没有返回登录用户名对应的SimpleAuthenticationInfo对象时,就会在LoginController中抛出UnknownAccountException异常
         return null;

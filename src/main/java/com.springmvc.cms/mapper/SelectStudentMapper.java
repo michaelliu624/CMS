@@ -21,9 +21,9 @@ public interface SelectStudentMapper {
     @Results(value = { @Result(id = true, property = "id", column = "id"),
             @Result(property = "name", column = "name"),
             @Result(property = "sex", column = "sex"),
-            /*@Result(property = "others", column = "others"),
+            @Result(property = "others", column = "others"),
             @Result(property = "major", column = "major"),
-            @Result(property = "classes", column = "classes"),*/
+            @Result(property = "classes", column = "classes"),
             @Result(property = "academy", column = "academy") })
     List<Student> operateReturnBeans(@Param(value = "sql") String sql);
 }
