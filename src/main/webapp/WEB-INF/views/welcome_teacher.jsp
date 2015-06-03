@@ -142,7 +142,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass?id=${currUser}')" ;>
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
                                     我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
@@ -157,7 +157,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/insertstudent">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -165,7 +165,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/updatestudent">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -173,7 +173,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/dropstudent">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
                                     删除学生
                                 </a>
                             </shiro:hasPermission>
@@ -181,48 +181,35 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/selectscore">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
-
-                        <%--<li>
-                            <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/insertsscore">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>--%>
 
                         <li>
                             <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/updatescore">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
-                       <%-- <li>
-                            <shiro:hasPermission name="teacher:cyuyan">
-                                <a href="<%=request.getContextPath()%>/cyuyan/dropscore">
-                                    删除成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>--%>
+
+
 
 
 
                         <li>
                             <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(大学体育)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -230,7 +217,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -238,7 +225,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -246,7 +233,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -254,30 +249,25 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:tiyu">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(当代小说)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -285,7 +275,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -293,7 +283,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -301,7 +291,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -309,30 +307,25 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(电路分析)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -340,7 +333,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -348,7 +341,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -356,7 +349,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -364,31 +365,25 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:dianlufenxi">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
 
+
+
                         <li>
                             <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(大学英语)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -396,7 +391,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -404,7 +399,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -412,7 +407,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -420,31 +423,26 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:english">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(基本乐理）
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -452,7 +450,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -460,7 +458,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -468,7 +466,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -476,31 +482,26 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:music">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(高等数学)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -508,7 +509,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -516,7 +517,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -524,7 +525,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -532,31 +541,26 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:math">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(大学体育)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -564,7 +568,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -572,7 +576,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -580,7 +584,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -588,31 +600,26 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:pe">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(通信原理)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -620,7 +627,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -628,7 +635,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -636,7 +643,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -644,31 +659,26 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:tongyuan">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>
                         </li>
 
 
+
+
+
                         <li>
                             <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    我的课程(形势与政策)
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass')" ;>
+                                    我的课程(C语言)
                                 </a>
                             </shiro:hasPermission>
                         </li>
                         <li>
                             <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
                                     我的学生
                                 </a>
                             </shiro:hasPermission>
@@ -676,7 +686,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/insertstudent')" ;>
                                     添加学生
                                 </a>
                             </shiro:hasPermission>
@@ -684,7 +694,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatestudent?class_teacher_id=${currUser}')" ;>
                                     修改学生
                                 </a>
                             </shiro:hasPermission>
@@ -692,7 +702,15 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/dropstudent?class_teacher_id=${currUser}')" ;>
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/selectscore?class_teacher_id=${currUser}')" ;>
                                     查看成绩
                                 </a>
                             </shiro:hasPermission>
@@ -700,15 +718,7 @@
 
                         <li>
                             <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
-                                    添加成绩
-                                </a>
-                            </shiro:hasPermission>
-                        </li>
-
-                        <li>
-                            <shiro:hasPermission name="teacher:xingshizhengce">
-                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/updatescore?class_teacher_id=${currUser}')" ;>
                                     修改成绩
                                 </a>
                             </shiro:hasPermission>

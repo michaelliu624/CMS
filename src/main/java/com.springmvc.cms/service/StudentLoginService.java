@@ -41,4 +41,6 @@ public interface StudentLoginService {
     List<StudentLogin> getAdminRoleByID(String str);
 
     List<StudentLogin> getAdminPermissionByID(String str);
+
+    List<StudentLogin> getStudentAll();
 }

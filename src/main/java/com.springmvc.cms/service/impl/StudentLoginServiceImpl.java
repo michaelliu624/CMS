@@ -28,6 +28,12 @@ public class StudentLoginServiceImpl implements StudentLoginService {
     }
 
     @Override
+    public List<StudentLogin> getStudentAll(){
+        String select_student_id_sql = "select * from student_login_info ";
+        return this.studentLoginMapper.operateReturnBeans(select_student_id_sql) ;
+    }
+
+    @Override
     public List<StudentLogin> getStudentNameByID(String id) {
         String select_student_name_sql = "select name from student_login_info where id='"+id+"'";
         return this.studentLoginMapper.operateReturnBeans(select_student_name_sql) ;

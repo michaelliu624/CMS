@@ -1,13 +1,7 @@
 package com.springmvc.cms.service.impl;
 
-import com.springmvc.cms.mapper.SelectStudentApartmentMapper;
-import com.springmvc.cms.mapper.SelectStudentBodyMapper;
-import com.springmvc.cms.mapper.SelectStudentClassMapper;
-import com.springmvc.cms.mapper.SelectStudentMapper;
-import com.springmvc.cms.model.AllSubject;
-import com.springmvc.cms.model.Student;
-import com.springmvc.cms.model.StudentApartment;
-import com.springmvc.cms.model.StudentBody;
+import com.springmvc.cms.mapper.*;
+import com.springmvc.cms.model.*;
 import com.springmvc.cms.service.SelectStudentService;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +26,6 @@ public class SelectStudentServiceImpl implements SelectStudentService{
         String select_sql = "select * from student_test.student where id ='"+ id +"'";
         return this.selectStudentMapper.operateReturnBeans(select_sql) ;
     }
-
 
     @Resource(name = "selectStudentApartmentMapper")
     private SelectStudentApartmentMapper selectStudentApartmentMapper;

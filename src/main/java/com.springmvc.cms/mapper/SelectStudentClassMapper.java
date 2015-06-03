@@ -2,10 +2,7 @@ package com.springmvc.cms.mapper;
 
 import com.springmvc.cms.model.AllSubject;
 import com.springmvc.cms.model.StudentBody;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,5 +29,13 @@ public interface SelectStudentClassMapper {
 
     })
     List<AllSubject> operateReturnBeans(@Param(value = "sql") String sql);
-    void operateInsertBeans(@Param(value = "sql") String sql);
+    @Insert(value = "${insert}")
+    void operateInsertBeans(@Param(value = "insert") String insert);
+
+    @Update(value = "${update}")
+    void operateUpdateBeans(@Param(value = "update") String update);
+
+    @Delete(value = "${delete}")
+    void operateDeleteBeans(@Param(value = "delete") String delete);
+
 }

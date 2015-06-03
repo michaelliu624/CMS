@@ -12,7 +12,7 @@ public interface TeacherService {
 
     List<AllSubject> selectAllStudent(String id,String table);
 
-    void insertStudent(String id, String table, String class_name, String class_teacher_id, String class_teacher_name, String class_student_id,String class_time);
+    public void insertStudent(String id, String table, String class_name, String class_teacher_id, String class_teacher_name, String class_student_id,String class_time);
 
     void updateStudent(String id, String table, String class_name, String class_teacher_id, String class_teacher_name, String class_student_id);
 
