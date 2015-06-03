@@ -106,7 +106,7 @@
             <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" src="assets/img/avatar1_small.jpg"/>
-                    <span class="username"> ${userInfo.username } </span>
+                    <span class="username"> ${admin_name} </span>
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -343,7 +343,7 @@
             <div class="row" id="pages">
                 <div class="col-md-12">
                     <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${currUser}</h3>
+                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${admin_name}</h3>
                     <img src="/assets/img/ncut-bg.jpg" width="800px"; height="450"; style="position:relative; left:0px; top:50px; ">
                     <a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>
                    <%-- <ul class="page-breadcrumb breadcrumb">
@@ -377,7 +377,7 @@
 <!-- BEGIN FOOTER -->
 <div class="footer">
     <div class="footer-inner">
-        2015 &copy; 校园管理系统 By Michael.L
+        2015 &copy; NCUT校园管理系统 By Michael.L
     </div>
     <div class="footer-tools">
         <span class="go-top"><i class="fa fa-angle-up"></i></span>

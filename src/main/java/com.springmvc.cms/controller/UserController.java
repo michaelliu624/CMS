@@ -1,9 +1,13 @@
 package com.springmvc.cms.controller;
 
+import com.springmvc.cms.model.StudentLogin;
+import com.springmvc.cms.service.StudentLoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @Author Michael Liu
@@ -98,27 +102,42 @@ public class UserController {
         return "indexpage";
     }
 
+    @Resource(name = "studentLoginService")
+    private StudentLoginService studentLoginService;
+
     @RequestMapping("/welcome_admin")
     public String welcome_admin(HttpServletRequest request){
         String currentUser = (String)request.getSession().getAttribute("currentUser");
-        System.out.println("当前登录的用户为[" + currentUser + "]");
+        //获取管理员姓名
+        List<StudentLogin> adminNameByID = this.studentLoginService.getAdminNameByID(currentUser);
+        String admin_name = adminNameByID.get(0).getName();
+        System.out.println("当前登录的用户为[" + currentUser +"----"+ admin_name +"]");
         request.setAttribute("currUser", currentUser);
+        request.setAttribute("admin_name", admin_name);
         return "welcome_admin";
     }
 
     @RequestMapping("/welcome_student")
     public String welcome_student(HttpServletRequest request){
         String currentUser = (String)request.getSession().getAttribute("currentUser");
-        System.out.println("当前登录的用户为[" + currentUser + "]");
+        //获取学生姓名
+        List<StudentLogin> studentNameByID = this.studentLoginService.getStudentNameByID(currentUser);
+        String student_name = studentNameByID.get(0).getName();
+        System.out.println("当前登录的用户为[" + currentUser +"----"+ student_name +"]");
         request.setAttribute("currUser", currentUser);
+        request.setAttribute("student_name", student_name);
         return "welcome_student";
     }
 
     @RequestMapping("/welcome_teacher")
     public String welcome_teacher(HttpServletRequest request){
         String currentUser = (String)request.getSession().getAttribute("currentUser");
-        System.out.println("当前登录的用户为[" + currentUser + "]");
+        //获取教师姓名
+        List<StudentLogin> teacherNameByID = this.studentLoginService.getTeacherNameByID(currentUser);
+        String teacher_name = teacherNameByID.get(0).getName();
+        System.out.println("当前登录的用户为[" + currentUser +"----"+ teacher_name +"]");
         request.setAttribute("currUser", currentUser);
+        request.setAttribute("teacher_name", teacher_name);
         return "welcome_teacher";
     }
 

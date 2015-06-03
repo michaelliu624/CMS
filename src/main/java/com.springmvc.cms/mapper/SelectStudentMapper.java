@@ -22,8 +22,13 @@ public interface SelectStudentMapper {
             @Result(property = "name", column = "name"),
             @Result(property = "sex", column = "sex"),
             @Result(property = "others", column = "others"),
+            @Result(property = "academy", column = "academy"),
             @Result(property = "major", column = "major"),
             @Result(property = "classes", column = "classes"),
-            @Result(property = "academy", column = "academy") })
+            @Result(property = "birthday", column = "birthday"),
+            @Result(property = "enrollment_time", column = "enrollment_time"),
+            @Result(property = "this_regis_time", column = "this_regis_time")
+
+    })
     List<Student> operateReturnBeans(@Param(value = "sql") String sql);
 }

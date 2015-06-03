@@ -63,7 +63,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             </p>
             <form action="#">
                 <div class="input-group input-medium">
-                    <input type="text" class="form-control" placeholder="输入你想去的地方..."> <span class="input-group-btn">
+                    <input type="text" class="form-control" placeholder="输入你此刻的想法..."> <span class="input-group-btn">
                             <button type="submit" class="btn blue">
                                 <i class="fa fa-search"></i>
                             </button>

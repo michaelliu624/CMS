@@ -60,10 +60,14 @@
             <value>
                 /rest/login=anon
                 /rest/getVerifyCodeImage=anon
-                /rest/test/**=anon
+                <!--/rest/test/**=anon
                 /user/getUserInfo=authc,perms[admin:manage]
-                /user/listUser=authc,perms[admin:manage]
+                /user/listUser=authc,perms[admin:manage]-->
+                /user/welcome_admin=authc,perms[admin:manage]
+                /user/welcome_student=authc,perms[student:see]
+                /user/welcome_teacher=authc,perms[teacher:insert]
                 /user/**=authc
+
                 <!--/user/welcome=authc-->
 
             </value>

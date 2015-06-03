@@ -22,7 +22,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <head>
 <base href="<%=basePath%>">
 <meta charset="utf-8"/>
-<title>500 Server Error</title>
+<title>500 服务器内部错误</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="" name="description"/>
@@ -53,11 +53,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 			 500
 		</div>
 		<div class=" details">
-			<h3>Oops! Something went wrong.</h3>
-			<p>
-				 We are fixing it!<br/>
-				Please come back in a while.<br/><br/>
-			</p>
+			<h3>Oops! 系统内部出现故障，亲您稍后再试</h3>
+            <p>
+                点击 <a href="<%=request.getContextPath()%>" id="" style="font-size: 18px">这里</a> 返回登录页面
+            </p>
 		</div>
 	</div>
 </div>

@@ -26,8 +26,16 @@
     <title>Insert title here</title>
 </head>
 <body>
-<c:forEach items="${result}" var="item">
-    学号：${item.id } 姓名：${item.name } 性别：${item.sex } 学院：${item.academy } 专业：${item.major } 班级：${item.classes } 其他：${item.others } <br/>
-</c:forEach>
+<div class="row" id="pages">
+    <div class="col-md-12">
+        <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">
+            <c:forEach items="${result}" var="item">
+                本学期注册时间：${item.this_regis_time }  <br/>
+                入学时间：${item.enrollment_time } <br/>
+            </c:forEach>
+        </h3>
+    </div>
+</div>
+
 </body>
 </html>

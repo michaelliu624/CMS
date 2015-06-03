@@ -2,7 +2,9 @@ package com.springmvc.cms.realm;
 
 import com.springmvc.cms.model.Student;
 import com.springmvc.cms.model.StudentLogin;
+import com.springmvc.cms.model.TeacherPermission;
 import com.springmvc.cms.service.SelectStudentService;
+import com.springmvc.cms.service.SelectTeacherService;
 import com.springmvc.cms.service.StudentLoginService;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -16,6 +18,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -35,6 +38,9 @@ public class MyRealm extends AuthorizingRealm{
     @Resource(name = "studentLoginService")
     private StudentLoginService studentLoginService;
 
+    @Resource(name = "selectTeacherService")
+    private SelectTeacherService selectTeacherService;
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         //获取当前登录的用户名,等价于(String)principals.fromRealm(this.getName()).iterator().next()
@@ -50,9 +56,11 @@ public class MyRealm extends AuthorizingRealm{
         //获取教师ID
         List<StudentLogin> teacherByID = this.studentLoginService.getTeacherByID(currentUsername);
         //获取教师角色
-        List<StudentLogin> teacherRoleByID = this.studentLoginService.getTeacherRoleByID(currentUsername);
+        //List<StudentLogin> teacherRoleByID = this.studentLoginService.getTeacherRoleByID(currentUsername);
         //获取教师权限
-        List<StudentLogin> teacherPermissionByID = this.studentLoginService.getTeacherPermissionByID(currentUsername);
+        //List<StudentLogin> teacherPermissionByID = this.studentLoginService.getTeacherPermissionByID(currentUsername);
+        //获取教师所有权限 上面教师相关方法将废除
+        List<TeacherPermission> teacherPermissionByID = this.selectTeacherService.find(currentUsername);
 
         //获取管理员ID
         List<StudentLogin> adminByID = this.studentLoginService.getAdminByID(currentUsername);
@@ -76,12 +84,24 @@ public class MyRealm extends AuthorizingRealm{
         }else if (teacherByID !=null && ! teacherByID.isEmpty()) {
             String teacher = teacherByID.get(0).getId();
             if (null != currentUsername && teacher.equals(currentUsername)) {
-                String teacher_role = teacherRoleByID.get(0).getRole();
+                List<String> roleList = new ArrayList<String>();
+                List<String> permissionList = new ArrayList<String>();
+                for(int i=0;i<teacherPermissionByID.size();i++){
+                    String teacher_role = teacherPermissionByID.get(i).getRole();
+                    roleList.add(teacher_role);
+                }
+                for(int i=0;i<teacherPermissionByID.size();i++){
+                    String teacher_permission = teacherPermissionByID.get(i).getPermission();
+                    permissionList.add(teacher_permission);
+                }
+                /*String teacher_role = teacherRoleByID.get(0).getRole();
                 String teacher_permission = teacherPermissionByID.get(0).getPermisson();
-                simpleAuthorInfo.addRole(teacher_role);
+                simpleAuthorInfo.addRole(teacher_role);*/
+                simpleAuthorInfo.addRoles(roleList);
                 //添加权限
-                simpleAuthorInfo.addStringPermission(teacher_permission);
-                System.out.println("已为用户[" + currentUsername + "]赋予了"+ teacher_role +"角色和"+ teacher_permission +"权限");
+               /* simpleAuthorInfo.addStringPermission(teacher_permission);*/
+                simpleAuthorInfo.addStringPermissions(permissionList);
+                //System.out.println("已为用户[" + currentUsername + "]赋予了"+ teacher_role +"角色和"+ teacher_permission +"权限");
                 return simpleAuthorInfo;
             }
         }else if (adminByID !=null && ! adminByID.isEmpty()) {

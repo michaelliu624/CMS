@@ -12,6 +12,8 @@ public interface StudentLoginService {
 
     List<StudentLogin> getStudentByID(String id);
 
+    List<StudentLogin> getStudentNameByID(String id);
+
     List<StudentLogin> getStudentPasswdByID(String str);
 
     List<StudentLogin> getStudentRoleByID(String str);
@@ -21,6 +23,8 @@ public interface StudentLoginService {
 
     List<StudentLogin> getTeacherByID(String id);
 
+    List<StudentLogin> getTeacherNameByID(String id);
+
     List<StudentLogin> getTeacherPasswdByID(String str);
 
     List<StudentLogin> getTeacherRoleByID(String str);
@@ -29,6 +33,8 @@ public interface StudentLoginService {
 
 
     List<StudentLogin> getAdminByID(String id);
+
+    List<StudentLogin> getAdminNameByID(String id);
 
     List<StudentLogin> getAdminPasswdByID(String str);
 

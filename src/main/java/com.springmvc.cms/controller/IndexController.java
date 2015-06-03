@@ -1,12 +1,16 @@
 package com.springmvc.cms.controller;
 
+import com.springmvc.cms.model.AllSubject;
 import com.springmvc.cms.model.Student;
+import com.springmvc.cms.model.StudentApartment;
+import com.springmvc.cms.model.StudentBody;
 import com.springmvc.cms.service.SelectStudentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
@@ -19,23 +23,100 @@ import java.util.*;
 @RequestMapping("/in")
 public class IndexController {
 
-    /*@RequestMapping("/subject")
-    public String subject(){return "welcome/subject";}*/
-    @RequestMapping("/score")
-    public String score(){return "welcome/score";}
-    @RequestMapping("/timetable")
-    public String timetable(){return "welcome/timetable";}
-
     @Resource(name = "selectStudentService")
     private SelectStudentService selectStudentService;
-    @RequestMapping(value = "/subject")
-    public ModelAndView selectInfo(HttpServletResponse response) throws Exception{
 
+    @RequestMapping(value = "/basicinfo")
+    public ModelAndView selectInfo(HttpServletRequest request,HttpServletResponse response) throws Exception{
+
+        String id = request.getParameter("id");
         Map<String,Object> map = new HashMap<String, Object>();
 
-        List<Student> result = this.selectStudentService.find();
-        return new ModelAndView("welcome/subject",map);
+        List<Student> result = this.selectStudentService.find(id);
+        map.put("result",result) ;
+        return new ModelAndView("welcome/basicinfo",map);
     }
+
+    @RequestMapping(value = "/regis")
+    public ModelAndView regis(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        List<Student> result = this.selectStudentService.find(id);
+        map.put("result", result);
+        return new ModelAndView("welcome/regis", map);
+    }
+
+
+    @RequestMapping(value = "/apartm")
+    public ModelAndView apartm(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        List<StudentApartment> result = this.selectStudentService.find_apartment(id);
+        map.put("result", result);
+        return new ModelAndView("welcome/apartm", map);
+    }
+
+    @RequestMapping(value = "/body")
+    public ModelAndView body(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        List<StudentBody> result = this.selectStudentService.find_body(id);
+        map.put("result", result);
+        return new ModelAndView("welcome/body", map);
+    }
+
+
+    @RequestMapping(value = "/score")
+    public ModelAndView score(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        List<AllSubject> result = this.selectStudentService.find_subject(id);
+        map.put("result", result);
+        return new ModelAndView("welcome/score", map);
+    }
+
+    @RequestMapping(value = "/class_score")
+    public ModelAndView class_score(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        List<AllSubject> result = this.selectStudentService.find_subject(id);
+        map.put("result", result);
+        return new ModelAndView("welcome/class_score", map);
+    }
+
+    @RequestMapping(value = "/subject_table")
+    public ModelAndView subject_table(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        List<AllSubject> result = this.selectStudentService.find_subject(id);
+        map.put("result", result);
+        return new ModelAndView("welcome/subject_table", map);
+    }
+
+    @RequestMapping(value = "/change_passwd")
+    public ModelAndView change_passwd(HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        String id = request.getParameter("id");
+       /* Map<String, Object> map = new HashMap<String, Object>();
+
+        List<AllSubject> result = this.selectStudentService.find_subject(id);
+        map.put("result", result);*/
+        return new ModelAndView("welcome/change_passwd");
+    }
+
+
 
 
 }

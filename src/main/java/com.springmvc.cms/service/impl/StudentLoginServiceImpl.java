@@ -28,6 +28,12 @@ public class StudentLoginServiceImpl implements StudentLoginService {
     }
 
     @Override
+    public List<StudentLogin> getStudentNameByID(String id) {
+        String select_student_name_sql = "select name from student_login_info where id='"+id+"'";
+        return this.studentLoginMapper.operateReturnBeans(select_student_name_sql) ;
+    }
+
+    @Override
     public List<StudentLogin> getStudentPasswdByID(String str){
         String select_student_passwd_sql = "select passwd from student_login_info where id='"+str+"'";
         return this.studentLoginMapper.operateReturnBeans(select_student_passwd_sql) ;
@@ -52,6 +58,12 @@ public class StudentLoginServiceImpl implements StudentLoginService {
     }
 
     @Override
+    public List<StudentLogin> getTeacherNameByID(String id) {
+        String select_teacher_name_sql = "select name from teacher_login_info where id='"+id+"'";
+        return this.studentLoginMapper.operateReturnBeans(select_teacher_name_sql) ;
+    }
+
+    @Override
     public List<StudentLogin> getTeacherPasswdByID(String str) {
         String select_teacher_passwd_sql = "select passwd from teacher_login_info where id='"+str+"'";
         return this.studentLoginMapper.operateReturnBeans(select_teacher_passwd_sql) ;
@@ -73,6 +85,12 @@ public class StudentLoginServiceImpl implements StudentLoginService {
     public List<StudentLogin> getAdminByID(String id) {
         String select_admin_id_sql = "select id from admin_login_info where id='"+id+"'";
         return this.studentLoginMapper.operateReturnBeans(select_admin_id_sql) ;
+    }
+
+    @Override
+    public List<StudentLogin> getAdminNameByID(String id) {
+        String select_admin_name_sql = "select name from admin_login_info where id='"+id+"'";
+        return this.studentLoginMapper.operateReturnBeans(select_admin_name_sql) ;
     }
 
     @Override

@@ -20,21 +20,6 @@
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
-<%--    <script>
-        function newPage(act){
-            var actionUrl=act;
-            $.ajax({
-                url : actionUrl ,
-                beforeSend :function(xmlHttp){  // deforeSend 是请求前清除缓存  ，如果没有缓存也不使用beforeSend
-                    xmlHttp.setRequestHeader("If-Modified-Since","0");
-                    xmlHttp.setRequestHeader("Cache-Control","no-cache");
-                } ,
-                success : function(data) { //data 是返回的数据
-                    $("#row").html(data); // id books 是右边的一个显示图书列表的 div
-                }
-            });
-        }
-    </script>--%>
     <script>
         function newPage(act){
             var url = act;
@@ -106,7 +91,7 @@
             <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" src="assets/img/avatar1_small.jpg"/>
-                    <span class="username"> ${userInfo.username } </span>
+                    <span class="username"> ${teacher_name} </span>
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -154,39 +139,586 @@
                             class="selected"> </span>
                     </a>
                     <ul class="sub-menu">
+
                         <li>
-                            <a href="javascript:;" onclick="newPage('<%=path%>/in/subject')" ;>
-                                课程查看
-                            </a>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/myclass?id=${currUser}')" ;>
+                                    我的课程(C语言)
+                                </a>
+                            </shiro:hasPermission>
                         </li>
                         <li>
-                            <a href="javascript:;" onclick="newPage('<%=path%>/in/score')" ;>
-                                成绩查看
-                            </a>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="javascript:;" onclick="newPage('<%=path%>/cyuyan/mystudent?class_teacher_id=${currUser}')" ;>
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/insertstudent">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/updatestudent">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/dropstudent">
+                                    删除学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/selectscore">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <%--<li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/insertsscore">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>--%>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/updatescore">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                       <%-- <li>
+                            <shiro:hasPermission name="teacher:cyuyan">
+                                <a href="<%=request.getContextPath()%>/cyuyan/dropscore">
+                                    删除成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>--%>
+
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(大学体育)
+                                </a>
+                            </shiro:hasPermission>
                         </li>
                         <li>
-                            <a href="javascript:;" onclick="newPage('<%=path%>/in/timetable')" ;>
-                                个人课表
-                            </a>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tiyu">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(当代小说)
+                                </a>
+                            </shiro:hasPermission>
                         </li>
                         <li>
-                            <a href="javascript:;">
-                                注册信息
-                            </a>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dangdaixiaoshuo">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(电路分析)
+                                </a>
+                            </shiro:hasPermission>
                         </li>
                         <li>
-                            <a href="javascript:;">
-                                体检查看
-                            </a>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:dianlufenxi">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(大学英语)
+                                </a>
+                            </shiro:hasPermission>
                         </li>
                         <li>
-                            <a href="javascript:;">
-                                待添加
-                            </a>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
                         </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:english">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(基本乐理）
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:music">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(高等数学)
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:math">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(大学体育)
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:pe">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(通信原理)
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:tongyuan">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的课程(形势与政策)
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    我的学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改学生
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    查看成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    添加成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+                        <li>
+                            <shiro:hasPermission name="teacher:xingshizhengce">
+                                <a href="<%=request.getContextPath()%>/user/welcome_admin">
+                                    修改成绩
+                                </a>
+                            </shiro:hasPermission>
+                        </li>
+
+
                     </ul>
                 </li>
 
+                <shiro:hasPermission name="admin:manage">
                 <li class="">
                     <a href="javascript:;">
                         <i class="fa fa-gears"></i><span class="title"> 系统管理 </span><span
@@ -210,6 +742,148 @@
                         </li>
                     </ul>
                 </li>
+                </shiro:hasPermission>
+
+                <shiro:hasPermission name="teacher:tongxin11_1">
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-gears"></i><span class="title"> 查看班级学生信息 </span><span
+                                class="arrow "> </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    我的学生
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    学生成绩情况
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    学生身体情况
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    学生学分情况
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </shiro:hasPermission>
+
+                <shiro:hasPermission name="teacher:tongxin11_1">
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-gears"></i><span class="title"> 学院学生信息 </span><span
+                            class="arrow "> </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="javascript:;">
+                                学院学生信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                学生成绩情况
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                学生身体情况
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                学生学分情况
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                添加学生信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                修改学生信息
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                删除学生信息
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </shiro:hasPermission>
+
+                <shiro:hasPermission name="teacher:apartm3">
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-gears"></i><span class="title"> 公寓学生信息 </span><span
+                                class="arrow "> </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    公寓整体情况
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    添加学生信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    修改学生信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    删除学生信息
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </shiro:hasPermission>
+
+
+                <shiro:hasPermission name="teacher:xiaoyi">
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-gears"></i><span class="title"> 学生身体 </span><span
+                                class="arrow "> </span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    学生整体情况
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    添加学生信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    修改学生信息
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    删除学生信息
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </shiro:hasPermission>
+
 
                 <li class="">
                     <a href="javascript:;">
@@ -227,25 +901,6 @@
                                 密码修改
                             </a>
                         </li>
-
-                        <!-- 测试权限控制 -->
-                        <shiro:hasAnyRoles name="admin">
-                            <li>
-                                <a href="javascript:;">admin 拥有此角色</a>
-                            </li>
-                        </shiro:hasAnyRoles>
-
-                        <shiro:hasPermission name="admin:manage">
-                            <li>
-                                <a href="javascript:;">admin:manage1 拥有此权限</a>
-                            </li>
-                        </shiro:hasPermission>
-
-                        <shiro:hasPermission name="admin:manage">
-                            <li>
-                                <a href="javascript:;">admin:manage2 拥有此权限</a>
-                            </li>
-                        </shiro:hasPermission>
 
                     </ul>
                 </li>
@@ -343,9 +998,9 @@
             <div class="row" id="pages">
                 <div class="col-md-12">
                     <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${currUser}</h3>
+                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${teacher_name}</h3>
                     <img src="/assets/img/ncut-bg.jpg" width="800px"; height="450"; style="position:relative; left:0px; top:50px; ">
-                    <a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>
+                    <%--<a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>--%>
                    <%-- <ul class="page-breadcrumb breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
@@ -377,7 +1032,7 @@
 <!-- BEGIN FOOTER -->
 <div class="footer">
     <div class="footer-inner">
-        2015 &copy; 校园管理系统 By Michael.L
+        2015 &copy; NCUT校园管理系统 By Michael.L
     </div>
     <div class="footer-tools">
         <span class="go-top"><i class="fa fa-angle-up"></i></span>

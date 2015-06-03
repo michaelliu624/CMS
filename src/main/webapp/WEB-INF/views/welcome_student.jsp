@@ -92,7 +92,7 @@
     <div class="header-inner">
         <!-- BEGIN LOGO -->
         <a class="navbar-brand" href="javascript:;">
-            <img src="assets/img/logo.png" alt="logo" class="img-responsive" />
+            <img src="assets/img/logo.png" alt="logo" class="img-responsive" <%--height="14" width="86" --%>/>
         </a>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -106,7 +106,7 @@
             <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                     <img alt="" src="assets/img/avatar1_small.jpg"/>
-                    <span class="username"> ${userInfo.username } </span>
+                    <span class="username"> ${student_name} </span>
                     <i class="fa fa-angle-down"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -115,14 +115,9 @@
                             <i class="fa fa-move"></i> 全屏
                         </a>
                     </li>
-                    <%--<li>
-                        <a href="extra_lock.html">
-                            <i class="fa fa-lock"></i> 锁屏
-                        </a>
-                    </li>--%>
                     <li>
                         <a href="rest/logout">
-                            <i class="fa fa-key"></i> 退出
+                            <i class="fa fa-key"></i> 注销
                         </a>
                     </li>
                 </ul>
@@ -150,38 +145,23 @@
 
                 <li class="start active">
                     <a href="javascript:;" id="btn-dashboard">
-                        <i class="fa fa-home"></i><span class="title"> 个人信息 </span><span
-                            class="selected"> </span>
+                        <i class="fa fa-home"></i><span class="title"> 个人信息 </span>
+                        <span class="selected"> </span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;" onclick="newPage('<%=path%>/in/subject')" ;>
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/basicinfo?id=${currUser}')";>
                                 基本信息
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;" onclick="newPage('<%=path%>/in/score')" ;>
-                                注册状态
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/apartm?id=${currUser}')" ;>
+                                宿舍信息
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;" onclick="newPage('<%=path%>/in/timetable')" ;>
-                                宿舍状态
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                注册信息
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                体检查看
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                待添加
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/body?id=${currUser}')" ;>
+                                体检信息
                             </a>
                         </li>
                     </ul>
@@ -189,25 +169,16 @@
 
                 <li class="">
                     <a href="javascript:;">
-                        <i class="fa fa-gears"></i><span class="title"> 选课查看 </span><span
+                        <i class="fa fa-gears"></i><span class="title"> 课程管理 </span><span
                             class="arrow "> </span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">
-                                用户管理
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/subject_table?id=${currUser}')";>
+                                个人课表
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:;">
-                                角色管理
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                权限管理
-                            </a>
-                        </li>
+
                     </ul>
                 </li>
 
@@ -218,12 +189,27 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">
-                                信息修改
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/score?id=${currUser}')";>
+                                成绩查看
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/class_score?id=${currUser}')";>
+                                学分查看
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i><span class="title"> 用户管理 </span><span
+                            class="arrow "> </span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <%--<a href="<%=path%>/in/change_passwd?id=${currUser}">密码修改</a>--%>
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/change_passwd?id=${currUser}')";>
                                 密码修改
                             </a>
                         </li>
@@ -232,58 +218,16 @@
 
                 <li class="">
                     <a href="javascript:;">
-                        <i class="fa fa-user"></i><span class="title"> 作业查看 </span><span
+                        <i class="fa fa-heart"></i><span class="title"> 信息汇总 </span><span
                             class="arrow "> </span>
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="javascript:;">
-                                信息修改
+                            <a href="javascript:;" onclick="newPage('<%=path%>/in/basicinfo?id=${currUser}')";>
+                                信息汇总
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;">
-                                密码修改
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="fa fa-user"></i><span class="title"> 体检信息 </span><span
-                            class="arrow "> </span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="javascript:;">
-                                信息修改
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                密码修改
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="fa fa-user"></i><span class="title"> 信息汇总 </span><span
-                            class="arrow "> </span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="javascript:;">
-                                信息修改
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                密码修改
-                            </a>
-                        </li>
                     </ul>
                 </li>
 
@@ -380,9 +324,9 @@
             <div class="row" id="pages">
                 <div class="col-md-12">
                     <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${currUser}</h3>
+                    <h3 style="position:absolute; left:50px; top:0px; " class="page-title" id="index-page-title">欢迎登录NCUT校园管理系统，${student_name}</h3>
                     <img src="/assets/img/ncut-bg.jpg" width="800px"; height="450"; style="position:relative; left:0px; top:50px; ">
-                    <a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>
+                    <%--<a style="position:absolute; left:100px; top:500px; font-size:18px;" href="<%=path%>/user/indexpage">查看菜单</a>--%>
                    <%-- <ul class="page-breadcrumb breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>
@@ -414,7 +358,7 @@
 <!-- BEGIN FOOTER -->
 <div class="footer">
     <div class="footer-inner">
-        2015 &copy; 校园管理系统 By Michael.L
+        2015 &copy; NCUT校园管理系统 By Michael.L
     </div>
     <div class="footer-tools">
         <span class="go-top"><i class="fa fa-angle-up"></i></span>
